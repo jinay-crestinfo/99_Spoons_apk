@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@drawable/bank_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="@dimen/text_xsmall"
+        android:gravity="center"
+        android:id="@+id/tv_index"
+        android:background="@color/color_index"
+        android:layout_width="@dimen/grid_radio_item_width"
+        android:layout_height="28px"/>
+    <RadioGroup
+        android:orientation="vertical"
+        android:id="@+id/radio_group"
+        android:layout_width="@dimen/grid_radio_item_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_index">
+        <RadioButton
+            android:id="@+id/rb_01"
+            android:layout_width="@dimen/grid_radio_item_width"
+            android:layout_height="@dimen/grid_radio_item_height"
+            style="@style/grid_radio"/>
+        <RadioButton
+            android:id="@+id/rb_02"
+            android:layout_width="@dimen/grid_radio_item_width"
+            android:layout_height="@dimen/grid_radio_item_height"
+            style="@style/grid_radio"/>
+    </RadioGroup>
+</RelativeLayout>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#66000000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/shape_corner_dialog"
+        android:paddingLeft="@dimen/px50"
+        android:paddingTop="@dimen/px50"
+        android:paddingRight="@dimen/px50"
+        android:paddingBottom="@dimen/px50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px50"
+        android:layout_marginRight="@dimen/px50"
+        android:layout_centerInParent="true">
+        <TextView
+            android:textSize="@dimen/px56"
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px80"
+            android:text="AddressNo: #1"/>
+        <TextView
+            android:textSize="@dimen/px56"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px70"
+            android:text="Waste Type:"/>
+        <RadioGroup
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px100">
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/electronic"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Electronic waste"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/paper"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Paper waste"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/plastic"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Plastic waste"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/none"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="None"/>
+        </RadioGroup>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px">
+            <Button
+                android:textSize="@dimen/px36"
+                android:id="@+id/queryerrors"
+                android:background="@drawable/selector_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/px90"
+                android:text="Query Errors"
+                android:layout_weight="1"/>
+            <Button
+                android:textSize="@dimen/px36"
+                android:id="@+id/clearerrors"
+                android:background="@drawable/selector_button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/px90"
+                android:text="Clear Errors"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <TextView
+            android:textSize="@dimen/px32"
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px10"
+            android:lineHeight="@dimen/px40"/>
+        <TextView
+            android:textSize="@dimen/px56"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px90"
+            android:layout_marginTop="@dimen/px10"
+            android:text="Camera:"/>
+        <RadioGroup
+            android:orientation="horizontal"
+            android:id="@+id/cameras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camera1"
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 1"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camera2"
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 2"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camera3"
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 3"/>
+        </RadioGroup>
+        <TextView
+            android:textSize="@dimen/px56"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px90"
+            android:layout_marginTop="@dimen/px10"
+            android:text="Surpport Sizes:"/>
+        <RadioGroup
+            android:orientation="vertical"
+            android:id="@+id/camerassizes"
+            android:background="@drawable/shape_corner_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px10">
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camerasize1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 1"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camerasize2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 2"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camerasize3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 3"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camerasize4"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 3"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camerasize5"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 3"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camerasize6"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 3"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camerasize7"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 3"/>
+            <RadioButton
+                android:textSize="@dimen/px56"
+                android:id="@+id/camerasize8"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px90"
+                android:text="Camera 3"/>
+        </RadioGroup>
+        <Button
+            android:textSize="@dimen/px36"
+            android:id="@+id/close"
+            android:background="@drawable/selector_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px90"
+            android:text="O  K"/>
+    </LinearLayout>
+</RelativeLayout>

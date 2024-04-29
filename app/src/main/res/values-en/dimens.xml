@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hint_size">20px</dimen>
+    <dimen name="main_item_child_height">50px</dimen>
+    <dimen name="text_size_lsmall">22px</dimen>
+</resources>

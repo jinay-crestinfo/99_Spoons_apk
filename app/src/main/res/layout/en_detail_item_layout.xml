@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="@dimen/px80"
+    android:paddingRight="@dimen/px80"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/px160">
+    <TextView
+        android:textSize="@dimen/px36"
+        android:textColor="#000"
+        android:gravity="center"
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px40"
+        android:layout_marginBottom="@dimen/px20"
+        android:text="Sprinkles"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+    <TextView
+        android:textSize="@dimen/px22"
+        android:textColor="@color/gray_text_color"
+        android:gravity="center"
+        android:id="@+id/promo"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px100"
+        android:text="Promo code  0.00"
+        android:layout_alignParentLeft="true"/>
+    <TextView
+        android:textSize="@dimen/px36"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:gravity="bottom"
+        android:id="@+id/price"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$ 0.5"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

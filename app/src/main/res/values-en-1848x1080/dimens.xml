@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="goods_info_item_width">140px</dimen>
+    <dimen name="grid_item_check_width_name">120px</dimen>
+    <dimen name="grid_radio_item_width">210px</dimen>
+    <dimen name="grid_time_item_width">130px</dimen>
+    <dimen name="hint_size">18px</dimen>
+    <dimen name="new_setting_item_height">75px</dimen>
+    <dimen name="price_grid_item_height">53px</dimen>
+    <dimen name="price_grid_item_width">120px</dimen>
+    <dimen name="showinfo_height">58px</dimen>
+    <dimen name="text_normal">20px</dimen>
+    <dimen name="text_size_little2">18px</dimen>
+    <dimen name="text_size_lsmall">22px</dimen>
+    <dimen name="text_size_small">22px</dimen>
+    <dimen name="text_small">24px</dimen>
+    <dimen name="two_menu_spinner_width">230px</dimen>
+</resources>

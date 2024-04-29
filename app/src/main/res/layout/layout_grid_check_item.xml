@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@drawable/bank_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="@dimen/text_xsmall"
+        android:gravity="center"
+        android:id="@+id/tv_index"
+        android:background="@color/color_index"
+        android:layout_width="@dimen/grid_item_check_width"
+        android:layout_height="@dimen/price_grid_item_height"/>
+    <RelativeLayout
+        android:background="@drawable/grid_item_bg"
+        android:layout_width="@dimen/grid_item_check_width"
+        android:layout_height="54px"
+        android:layout_below="@+id/tv_index">
+        <CheckBox
+            android:id="@+id/check_box"
+            android:background="@drawable/selector_select"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:button="@null"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</RelativeLayout>

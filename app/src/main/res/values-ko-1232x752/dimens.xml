@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hint_size">16px</dimen>
+    <dimen name="text_normal">18px</dimen>
+    <dimen name="text_size_little2">16px</dimen>
+    <dimen name="text_size_lsmall">20px</dimen>
+    <dimen name="text_size_small">18px</dimen>
+    <dimen name="text_small">20px</dimen>
+</resources>

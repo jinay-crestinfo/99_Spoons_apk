@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@drawable/bank_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="@dimen/text_xsmall"
+        android:gravity="center"
+        android:id="@+id/tv_index"
+        android:background="@color/color_gargo"
+        android:layout_width="@dimen/price_grid_item_width"
+        android:layout_height="@dimen/price_grid_item_height"
+        android:text="@string/lab_shelf"/>
+    <TextView
+        android:background="@color/color_text"
+        android:layout_width="@dimen/price_grid_item_width"
+        android:layout_height="1px"/>
+    <TextView
+        android:textSize="@dimen/text_xsmall"
+        android:gravity="center"
+        android:id="@+id/tv_name"
+        android:background="@color/color_gargo"
+        android:layout_width="@dimen/price_grid_item_width"
+        android:layout_height="@dimen/y53"
+        android:text="@string/lab_price"
+        android:singleLine="true"
+        android:layout_below="@+id/tv_index"/>
+</RelativeLayout>

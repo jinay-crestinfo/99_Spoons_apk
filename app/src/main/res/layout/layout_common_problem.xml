@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/bt_problem"
+        android:background="@drawable/selector_button_blue"
+        android:paddingLeft="@dimen/x8"
+        android:paddingRight="@dimen/x8"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y50"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginBottom="@dimen/y5"
+        android:text="@string/common_fault_solve"
+        android:layout_centerVertical="true"
+        style="@style/bt_text"/>
+</LinearLayout>

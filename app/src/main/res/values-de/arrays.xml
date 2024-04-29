@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="baudrates">
+        <item>110</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1200</item>
+        <item>2400</item>
+        <item>4800</item>
+        <item>9600</item>
+        <item>14400</item>
+        <item>19200</item>
+        <item>38400</item>
+        <item>56000</item>
+        <item>57600</item>
+        <item>115200</item>
+        <item>128000</item>
+        <item>256000</item>
+    </array>
+    <array name="box_out_mode">
+        <item>Sensor 1</item>
+        <item>Sensor 2</item>
+        <item>Microwave Oven</item>
+    </array>
+    <array name="box_spacing_result">
+        <item>Set successful</item>
+        <item>Sliding motor overload</item>
+        <item>Position Limitation Protection</item>
+        <item>Overload protection</item>
+        <item>Lift Error</item>
+    </array>
+    <array name="institutional_function">
+        <item>Belt motor;0</item>
+        <item>Pushrod motor;1</item>
+        <item>Frontdoor of microwave;2</item>
+        <item>Backdoor of microwave;3</item>
+        <item>Microwave control;4</item>
+        <item>Fan;5</item>
+    </array>
+    <array name="institutional_function_sy">
+        <item>顶部灯箱;15</item>
+        <item>机柜灯箱;6</item>
+        <item>机柜传送带;7</item>
+        <item>高拍仪照明;8</item>
+        <item>取货口照明;9</item>
+        <item>中控锁;10</item>
+        <item>主柜锁;11</item>
+        <item>副柜锁;12</item>
+        <item>加湿器;13</item>
+        <item>光检;14</item>
+    </array>
+    <array name="lift_test_result">
+        <item>Normal</item>
+        <item>Lift overload</item>
+        <item>Anti-theft board error</item>
+        <item>Delivery door is unlock</item>
+        <item>Sliding motor overload</item>
+    </array>
+    <array name="lunch_box_test_result">
+        <item>Normal</item>
+        <item>Lift overload</item>
+        <item>Main motor overload</item>
+        <item>Sliding motor overload</item>
+        <item>Back door open error</item>
+        <item>Back door closing error</item>
+        <item>Front door open error</item>
+        <item>Front door closing error</item>
+    </array>
+    <array name="transaction_volume">
+        <item>Total transactions:%1$s</item>
+        <item>Total sales:%1$s</item>
+        <item>cash transactions:%1$s</item>
+        <item>cash sales:%1$s</item>
+        <item>Wechat transactions:%1$s</item>
+        <item>Wechat sales:%1$s</item>
+        <item>Alipay transactions:%1$s</item>
+        <item>Alipay sales:%1$s</item>
+        <item>Scanning code transactions:%1$s</item>
+        <item>Scanning code sales:%1$s</item>
+        <item>Token code transactions:%1$s</item>
+        <item>Token code transacion sales:%1$s</item>
+        <item>Unionpay transactions:%1$s</item>
+        <item>Uniopay sales:%1$s</item>
+        <item>IC card transactions:%1$s</item>
+        <item>IC card sales:%1$s</item>
+        <item>Holding credit times:%1$s</item>
+        <item>holding credit amount:%1$s</item>
+    </array>
+</resources>

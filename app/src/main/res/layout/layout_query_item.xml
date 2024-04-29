@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/bt_query"
+        android:background="@drawable/selector_button_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/setting_item_button_height"
+        android:layout_marginLeft="@dimen/setting_item_button_left"
+        android:layout_centerVertical="true"
+        style="@style/bt_text"/>
+    <TextView
+        android:textSize="@dimen/text_normal"
+        android:textColor="@color/color_text"
+        android:gravity="center_vertical"
+        android:id="@+id/tv_value"
+        android:background="@drawable/bank_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:minHeight="@dimen/new_setting_item_height"
+        android:layout_toRightOf="@+id/bt_query"
+        style="@style/normal_text"/>
+</RelativeLayout>

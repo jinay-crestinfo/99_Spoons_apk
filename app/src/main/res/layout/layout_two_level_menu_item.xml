@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/bt_menu"
+        android:background="@drawable/selector_button_blue"
+        android:layout_width="@dimen/two_menu_button_leng"
+        android:layout_height="@dimen/y56"
+        style="@style/bt_menu"/>
+</LinearLayout>
