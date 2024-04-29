@@ -4,11 +4,11 @@ import android.serialport.SerialPort;
 import android.support.v4.view.PointerIconCompat;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.baidu.platform.comapi.d;
-import com.hanlu.toolsdk.BqlManager;
-import com.hanlu.toolsdk.SerialPortUtil;
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechEvent;
+//import com.baidu.platform.comapi.d;
+//import com.hanlu.toolsdk.BqlManager;
+//import com.hanlu.toolsdk.SerialPortUtil;
+//import com.iflytek.cloud.SpeechConstant;
+//import com.iflytek.cloud.SpeechEvent;
 import com.oysb.utils.AndroidSystem;
 import com.oysb.utils.Loger;
 import com.oysb.utils.cache.CacheHelper;
@@ -43,7 +43,7 @@ import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import okhttp3.internal.ws.WebSocketProtocol;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
+//import tv.danmaku.ijk.media.player.IjkMediaMeta;
 
 /* loaded from: classes2.dex */
 public class VmdHelper {
@@ -179,7 +179,8 @@ public class VmdHelper {
     }
 
     public double getDiscount(int i) {
-        return this.disCounts.getDouble(d.a + i).doubleValue();
+//        return this.disCounts.getDouble(d.a + i).doubleValue();
+        return 10.0;
     }
 
     public boolean isNeedStopBql() {
@@ -222,6 +223,7 @@ public class VmdHelper {
         } catch (Exception unused) {
             return false;
         }
+        return true;
     }
 
     public boolean isNeedOpenBqlLight() {
@@ -388,35 +390,35 @@ public class VmdHelper {
         if (this.threadService == null) {
             this.threadService = Executors.newFixedThreadPool(1);
         }
-        this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.1
-            final /* synthetic */ boolean val$needStopBqlLight;
-
-            AnonymousClass1(boolean z2) {
-                z = z2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                BqlManager.get().setLight(z);
-            }
-        });
+//        this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.1
+////            final /* synthetic */ boolean val$needStopBqlLight;
+////
+////            AnonymousClass1(boolean z2) {
+////                z = z2;
+////            }
+////
+////            @Override // java.lang.Runnable
+////            public void run() {
+////                BqlManager.get().setLight(z);
+////            }
+//        });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.xyshj.machine.app.VmdHelper$1 */
     /* loaded from: classes2.dex */
-    public class AnonymousClass1 implements Runnable {
-        final /* synthetic */ boolean val$needStopBqlLight;
-
-        AnonymousClass1(boolean z2) {
-            z = z2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            BqlManager.get().setLight(z);
-        }
-    }
+//    public class AnonymousClass1 implements Runnable {
+//        final /* synthetic */ boolean val$needStopBqlLight;
+//
+//        AnonymousClass1(boolean z2) {
+//            z = z2;
+//        }
+//
+//        @Override // java.lang.Runnable
+//        public void run() {
+//            BqlManager.get().setLight(z);
+//        }
+//    }
 
     /* loaded from: classes2.dex */
     public static class TopItem {
@@ -705,13 +707,13 @@ public class VmdHelper {
                 hashMap2.put(str2, Integer.valueOf(((Integer) hashMap2.get(str2)).intValue() + (tops.get(str2).intValue() * hashMap.get(str).intValue())));
             }
         }
-        for (String str3 : hashMap2.keySet()) {
-            int goodsCount = ShjManager.getGoodsManager().getGoodsCount(getTopItem(str3).getCode());
-            Loger.writeLog("SHJ", "top:" + str3 + " count:" + hashMap2.get(str3) + " 库存:" + goodsCount);
-            if (goodsCount < ((Integer) hashMap2.get(str3)).intValue()) {
-                return false;
-            }
-        }
+//        for (String str3 : hashMap2.keySet()) {
+//            int goodsCount = ShjManager.getGoodsManager().getGoodsCount(getTopItem(str3).getCode());
+//            Loger.writeLog("SHJ", "top:" + str3 + " count:" + hashMap2.get(str3) + " 库存:" + goodsCount);
+//            if (goodsCount < ((Integer) hashMap2.get(str3)).intValue()) {
+//                return false;
+//            }
+//        }
         return true;
     }
 
@@ -759,7 +761,7 @@ public class VmdHelper {
         this.topDatas.add(topItem5);
         TopItem topItem6 = new TopItem();
         topItem6.title = "TOP6";
-        topItem6.setCode("" + WebSocketProtocol.CLOSE_NO_STATUS_CODE);
+//        topItem6.setCode("" + WebSocketProtocol.CLOSE_NO_STATUS_CODE);
         topItem6.name = "一份燕麦";
         topItem6.price = 1;
         topItem6.imageResurceId = R.drawable.img_ym;
@@ -945,7 +947,7 @@ public class VmdHelper {
     /* renamed from: com.xyshj.machine.app.VmdHelper$3 */
     /* loaded from: classes2.dex */
     public class AnonymousClass3 extends TimerTask {
-        final /* synthetic */ VmdConnectLisener val$l;
+
 
         AnonymousClass3(VmdConnectLisener vmdConnectLisener) {
             vmdConnectLisener = vmdConnectLisener;
@@ -965,76 +967,76 @@ public class VmdHelper {
             if (!VmdHelper.this.isVmdConnected) {
                 Loger.writeLog("SHJ", "---------------------------------------------------");
                 Loger.writeLog("SHJ", "openPort /dev/ttyS1 9600");
-                SerialPortUtil.get().openPort("/dev/ttyS1", 9600, new SerialPortUtil.OpenCallback() { // from class: com.xyshj.machine.app.VmdHelper.3.1
-                    AnonymousClass1() {
-                    }
-
-                    @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
-                    public void onSuccess() {
-                        Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接成功");
-                        VmdHelper.this.isVmdConnected = true;
-                        try {
-                            String asString = CacheHelper.getFileCache().getAsString("machineId");
-                            if (asString == null) {
-                                CacheHelper.getFileCache().put("machineId", "0000000000");
-                                asString = "0000000000";
-                            }
-                            if (asString.equalsIgnoreCase("0000000000")) {
-                                vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功 Debug模式");
-                            } else {
-                                vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功");
-                            }
-                        } catch (Exception unused) {
-                        }
-                        new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.3.1.1
-                            RunnableC00811() {
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                BqlManager.get().reset((short) 1);
-                                Loger.writeLog("SHJ", "复位完成");
-                            }
-                        }).start();
-                    }
-
-                    /* renamed from: com.xyshj.machine.app.VmdHelper$3$1$1 */
-                    /* loaded from: classes2.dex */
-                    class RunnableC00811 implements Runnable {
-                        RunnableC00811() {
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            BqlManager.get().reset((short) 1);
-                            Loger.writeLog("SHJ", "复位完成");
-                        }
-                    }
-
-                    @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
-                    public void onFailure(Throwable th) {
-                        Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接失败");
-                        Loger.writeException("SHJ", th);
-                        VmdHelper.this.isVmdConnected = BqlManager.get().isDebug();
-                        if (CacheHelper.getFileCache().getAsString("machineId") == null) {
-                            CacheHelper.getFileCache().put("machineId", "0000000000");
-                        }
-                        VmdConnectLisener vmdConnectLisener = vmdConnectLisener;
-                        boolean z = VmdHelper.this.isVmdConnected;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("/dev/ttyS1  9600 ");
-                        sb.append(BqlManager.get().isDebug() ? "Debug模式" : "连接失败");
-                        vmdConnectLisener.onConnectResult(z, sb.toString());
-                    }
-                });
+//                SerialPortUtil.get().openPort("/dev/ttyS1", 9600, new SerialPortUtil.OpenCallback() { // from class: com.xyshj.machine.app.VmdHelper.3.1
+//                    AnonymousClass1() {
+//                    }
+//
+//                    @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
+//                    public void onSuccess() {
+//                        Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接成功");
+//                        VmdHelper.this.isVmdConnected = true;
+//                        try {
+//                            String asString = CacheHelper.getFileCache().getAsString("machineId");
+//                            if (asString == null) {
+//                                CacheHelper.getFileCache().put("machineId", "0000000000");
+//                                asString = "0000000000";
+//                            }
+//                            if (asString.equalsIgnoreCase("0000000000")) {
+//                                vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功 Debug模式");
+//                            } else {
+//                                vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功");
+//                            }
+//                        } catch (Exception unused) {
+//                        }
+//                        new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.3.1.1
+//                            RunnableC00811() {
+//                            }
+//
+//                            @Override // java.lang.Runnable
+//                            public void run() {
+//                                BqlManager.get().reset((short) 1);
+//                                Loger.writeLog("SHJ", "复位完成");
+//                            }
+//                        }).start();
+//                    }
+//
+//                    /* renamed from: com.xyshj.machine.app.VmdHelper$3$1$1 */
+//                    /* loaded from: classes2.dex */
+//                    class RunnableC00811 implements Runnable {
+//                        RunnableC00811() {
+//                        }
+//
+//                        @Override // java.lang.Runnable
+//                        public void run() {
+//                            BqlManager.get().reset((short) 1);
+//                            Loger.writeLog("SHJ", "复位完成");
+//                        }
+//                    }
+//
+//                    @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
+//                    public void onFailure(Throwable th) {
+//                        Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接失败");
+//                        Loger.writeException("SHJ", th);
+//                        VmdHelper.this.isVmdConnected = BqlManager.get().isDebug();
+//                        if (CacheHelper.getFileCache().getAsString("machineId") == null) {
+//                            CacheHelper.getFileCache().put("machineId", "0000000000");
+//                        }
+//                        VmdConnectLisener vmdConnectLisener = vmdConnectLisener;
+//                        boolean z = VmdHelper.this.isVmdConnected;
+//                        StringBuilder sb = new StringBuilder();
+//                        sb.append("/dev/ttyS1  9600 ");
+//                        sb.append(BqlManager.get().isDebug() ? "Debug模式" : "连接失败");
+//                        vmdConnectLisener.onConnectResult(z, sb.toString());
+//                    }
+//                });
             }
             if (VmdHelper.this.isSTK920Connected) {
                 return;
             }
-            if (BqlManager.get().isDebug()) {
-                VmdHelper.this.isSTK920Connected = true;
-                return;
-            }
+//            if (BqlManager.get().isDebug()) {
+//                VmdHelper.this.isSTK920Connected = true;
+//                return;
+//            }
             VmdHelper.this.bql_connect();
             VmdHelper.this.isSTK920Connected = true;
             Loger.writeLog("SHJ", "serialPortSTK920 连接成功");
@@ -1050,77 +1052,77 @@ public class VmdHelper {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.xyshj.machine.app.VmdHelper$3$1 */
         /* loaded from: classes2.dex */
-        public class AnonymousClass1 implements SerialPortUtil.OpenCallback {
-            AnonymousClass1() {
-            }
-
-            @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
-            public void onSuccess() {
-                Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接成功");
-                VmdHelper.this.isVmdConnected = true;
-                try {
-                    String asString = CacheHelper.getFileCache().getAsString("machineId");
-                    if (asString == null) {
-                        CacheHelper.getFileCache().put("machineId", "0000000000");
-                        asString = "0000000000";
-                    }
-                    if (asString.equalsIgnoreCase("0000000000")) {
-                        vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功 Debug模式");
-                    } else {
-                        vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功");
-                    }
-                } catch (Exception unused) {
-                }
-                new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.3.1.1
-                    RunnableC00811() {
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        BqlManager.get().reset((short) 1);
-                        Loger.writeLog("SHJ", "复位完成");
-                    }
-                }).start();
-            }
-
-            /* renamed from: com.xyshj.machine.app.VmdHelper$3$1$1 */
-            /* loaded from: classes2.dex */
-            class RunnableC00811 implements Runnable {
-                RunnableC00811() {
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    BqlManager.get().reset((short) 1);
-                    Loger.writeLog("SHJ", "复位完成");
-                }
-            }
-
-            @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
-            public void onFailure(Throwable th) {
-                Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接失败");
-                Loger.writeException("SHJ", th);
-                VmdHelper.this.isVmdConnected = BqlManager.get().isDebug();
-                if (CacheHelper.getFileCache().getAsString("machineId") == null) {
-                    CacheHelper.getFileCache().put("machineId", "0000000000");
-                }
-                VmdConnectLisener vmdConnectLisener = vmdConnectLisener;
-                boolean z = VmdHelper.this.isVmdConnected;
-                StringBuilder sb = new StringBuilder();
-                sb.append("/dev/ttyS1  9600 ");
-                sb.append(BqlManager.get().isDebug() ? "Debug模式" : "连接失败");
-                vmdConnectLisener.onConnectResult(z, sb.toString());
-            }
-        }
+//        public class AnonymousClass1 implements SerialPortUtil.OpenCallback {
+//            AnonymousClass1() {
+//            }
+//
+//            @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
+//            public void onSuccess() {
+//                Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接成功");
+//                VmdHelper.this.isVmdConnected = true;
+//                try {
+//                    String asString = CacheHelper.getFileCache().getAsString("machineId");
+//                    if (asString == null) {
+//                        CacheHelper.getFileCache().put("machineId", "0000000000");
+//                        asString = "0000000000";
+//                    }
+//                    if (asString.equalsIgnoreCase("0000000000")) {
+//                        vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功 Debug模式");
+//                    } else {
+//                        vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功");
+//                    }
+//                } catch (Exception unused) {
+//                }
+//                new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.3.1.1
+//                    RunnableC00811() {
+//                    }
+//
+//                    @Override // java.lang.Runnable
+//                    public void run() {
+//                        BqlManager.get().reset((short) 1);
+//                        Loger.writeLog("SHJ", "复位完成");
+//                    }
+//                }).start();
+//            }
+//
+//            /* renamed from: com.xyshj.machine.app.VmdHelper$3$1$1 */
+//            /* loaded from: classes2.dex */
+//            class RunnableC00811 implements Runnable {
+//                RunnableC00811() {
+//                }
+//
+//                @Override // java.lang.Runnable
+//                public void run() {
+//                    BqlManager.get().reset((short) 1);
+//                    Loger.writeLog("SHJ", "复位完成");
+//                }
+//            }
+//
+//            @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
+//            public void onFailure(Throwable th) {
+//                Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接失败");
+//                Loger.writeException("SHJ", th);
+//                VmdHelper.this.isVmdConnected = BqlManager.get().isDebug();
+//                if (CacheHelper.getFileCache().getAsString("machineId") == null) {
+//                    CacheHelper.getFileCache().put("machineId", "0000000000");
+//                }
+//                VmdConnectLisener vmdConnectLisener = vmdConnectLisener;
+//                boolean z = VmdHelper.this.isVmdConnected;
+//                StringBuilder sb = new StringBuilder();
+//                sb.append("/dev/ttyS1  9600 ");
+//                sb.append(BqlManager.get().isDebug() ? "Debug模式" : "连接失败");
+//                vmdConnectLisener.onConnectResult(z, sb.toString());
+//            }
+//        }
     }
 
     public void connectVmd(VmdConnectLisener vmdConnectLisener) {
         this.timer.schedule(new TimerTask() { // from class: com.xyshj.machine.app.VmdHelper.3
-            final /* synthetic */ VmdConnectLisener val$l;
-
-            AnonymousClass3(VmdConnectLisener vmdConnectLisener2) {
-                vmdConnectLisener = vmdConnectLisener2;
-            }
+//            final /* synthetic */ VmdConnectLisener val$l;
+//
+//            AnonymousClass3(VmdConnectLisener vmdConnectLisener2) {
+//                vmdConnectLisener = vmdConnectLisener2;
+//            }
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
@@ -1136,76 +1138,76 @@ public class VmdHelper {
                 if (!VmdHelper.this.isVmdConnected) {
                     Loger.writeLog("SHJ", "---------------------------------------------------");
                     Loger.writeLog("SHJ", "openPort /dev/ttyS1 9600");
-                    SerialPortUtil.get().openPort("/dev/ttyS1", 9600, new SerialPortUtil.OpenCallback() { // from class: com.xyshj.machine.app.VmdHelper.3.1
-                        AnonymousClass1() {
-                        }
-
-                        @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
-                        public void onSuccess() {
-                            Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接成功");
-                            VmdHelper.this.isVmdConnected = true;
-                            try {
-                                String asString = CacheHelper.getFileCache().getAsString("machineId");
-                                if (asString == null) {
-                                    CacheHelper.getFileCache().put("machineId", "0000000000");
-                                    asString = "0000000000";
-                                }
-                                if (asString.equalsIgnoreCase("0000000000")) {
-                                    vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功 Debug模式");
-                                } else {
-                                    vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功");
-                                }
-                            } catch (Exception unused) {
-                            }
-                            new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.3.1.1
-                                RunnableC00811() {
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    BqlManager.get().reset((short) 1);
-                                    Loger.writeLog("SHJ", "复位完成");
-                                }
-                            }).start();
-                        }
-
-                        /* renamed from: com.xyshj.machine.app.VmdHelper$3$1$1 */
-                        /* loaded from: classes2.dex */
-                        class RunnableC00811 implements Runnable {
-                            RunnableC00811() {
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                BqlManager.get().reset((short) 1);
-                                Loger.writeLog("SHJ", "复位完成");
-                            }
-                        }
-
-                        @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
-                        public void onFailure(Throwable th) {
-                            Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接失败");
-                            Loger.writeException("SHJ", th);
-                            VmdHelper.this.isVmdConnected = BqlManager.get().isDebug();
-                            if (CacheHelper.getFileCache().getAsString("machineId") == null) {
-                                CacheHelper.getFileCache().put("machineId", "0000000000");
-                            }
-                            VmdConnectLisener vmdConnectLisener2 = vmdConnectLisener;
-                            boolean z = VmdHelper.this.isVmdConnected;
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("/dev/ttyS1  9600 ");
-                            sb.append(BqlManager.get().isDebug() ? "Debug模式" : "连接失败");
-                            vmdConnectLisener2.onConnectResult(z, sb.toString());
-                        }
-                    });
+//                    SerialPortUtil.get().openPort("/dev/ttyS1", 9600, new SerialPortUtil.OpenCallback() { // from class: com.xyshj.machine.app.VmdHelper.3.1
+//                        AnonymousClass1() {
+//                        }
+//
+//                        @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
+//                        public void onSuccess() {
+//                            Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接成功");
+//                            VmdHelper.this.isVmdConnected = true;
+//                            try {
+//                                String asString = CacheHelper.getFileCache().getAsString("machineId");
+//                                if (asString == null) {
+//                                    CacheHelper.getFileCache().put("machineId", "0000000000");
+//                                    asString = "0000000000";
+//                                }
+//                                if (asString.equalsIgnoreCase("0000000000")) {
+//                                    vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功 Debug模式");
+//                                } else {
+//                                    vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功");
+//                                }
+//                            } catch (Exception unused) {
+//                            }
+//                            new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.3.1.1
+//                                RunnableC00811() {
+//                                }
+//
+//                                @Override // java.lang.Runnable
+//                                public void run() {
+//                                    BqlManager.get().reset((short) 1);
+//                                    Loger.writeLog("SHJ", "复位完成");
+//                                }
+//                            }).start();
+//                        }
+//
+//                        /* renamed from: com.xyshj.machine.app.VmdHelper$3$1$1 */
+//                        /* loaded from: classes2.dex */
+//                        class RunnableC00811 implements Runnable {
+//                            RunnableC00811() {
+//                            }
+//
+//                            @Override // java.lang.Runnable
+//                            public void run() {
+//                                BqlManager.get().reset((short) 1);
+//                                Loger.writeLog("SHJ", "复位完成");
+//                            }
+//                        }
+//
+//                        @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
+//                        public void onFailure(Throwable th) {
+//                            Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接失败");
+//                            Loger.writeException("SHJ", th);
+//                            VmdHelper.this.isVmdConnected = BqlManager.get().isDebug();
+//                            if (CacheHelper.getFileCache().getAsString("machineId") == null) {
+//                                CacheHelper.getFileCache().put("machineId", "0000000000");
+//                            }
+//                            VmdConnectLisener vmdConnectLisener2 = vmdConnectLisener;
+//                            boolean z = VmdHelper.this.isVmdConnected;
+//                            StringBuilder sb = new StringBuilder();
+//                            sb.append("/dev/ttyS1  9600 ");
+//                            sb.append(BqlManager.get().isDebug() ? "Debug模式" : "连接失败");
+//                            vmdConnectLisener2.onConnectResult(z, sb.toString());
+//                        }
+//                    });
                 }
                 if (VmdHelper.this.isSTK920Connected) {
                     return;
                 }
-                if (BqlManager.get().isDebug()) {
-                    VmdHelper.this.isSTK920Connected = true;
-                    return;
-                }
+//                if (BqlManager.get().isDebug()) {
+//                    VmdHelper.this.isSTK920Connected = true;
+//                    return;
+//                }
                 VmdHelper.this.bql_connect();
                 VmdHelper.this.isSTK920Connected = true;
                 Loger.writeLog("SHJ", "serialPortSTK920 连接成功");
@@ -1221,68 +1223,68 @@ public class VmdHelper {
             /* JADX INFO: Access modifiers changed from: package-private */
             /* renamed from: com.xyshj.machine.app.VmdHelper$3$1 */
             /* loaded from: classes2.dex */
-            public class AnonymousClass1 implements SerialPortUtil.OpenCallback {
-                AnonymousClass1() {
-                }
-
-                @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
-                public void onSuccess() {
-                    Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接成功");
-                    VmdHelper.this.isVmdConnected = true;
-                    try {
-                        String asString = CacheHelper.getFileCache().getAsString("machineId");
-                        if (asString == null) {
-                            CacheHelper.getFileCache().put("machineId", "0000000000");
-                            asString = "0000000000";
-                        }
-                        if (asString.equalsIgnoreCase("0000000000")) {
-                            vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功 Debug模式");
-                        } else {
-                            vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功");
-                        }
-                    } catch (Exception unused) {
-                    }
-                    new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.3.1.1
-                        RunnableC00811() {
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            BqlManager.get().reset((short) 1);
-                            Loger.writeLog("SHJ", "复位完成");
-                        }
-                    }).start();
-                }
-
-                /* renamed from: com.xyshj.machine.app.VmdHelper$3$1$1 */
-                /* loaded from: classes2.dex */
-                class RunnableC00811 implements Runnable {
-                    RunnableC00811() {
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        BqlManager.get().reset((short) 1);
-                        Loger.writeLog("SHJ", "复位完成");
-                    }
-                }
-
-                @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
-                public void onFailure(Throwable th) {
-                    Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接失败");
-                    Loger.writeException("SHJ", th);
-                    VmdHelper.this.isVmdConnected = BqlManager.get().isDebug();
-                    if (CacheHelper.getFileCache().getAsString("machineId") == null) {
-                        CacheHelper.getFileCache().put("machineId", "0000000000");
-                    }
-                    VmdConnectLisener vmdConnectLisener2 = vmdConnectLisener;
-                    boolean z = VmdHelper.this.isVmdConnected;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("/dev/ttyS1  9600 ");
-                    sb.append(BqlManager.get().isDebug() ? "Debug模式" : "连接失败");
-                    vmdConnectLisener2.onConnectResult(z, sb.toString());
-                }
-            }
+//            public class AnonymousClass1 implements SerialPortUtil.OpenCallback {
+//                AnonymousClass1() {
+//                }
+//
+//                @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
+//                public void onSuccess() {
+//                    Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接成功");
+//                    VmdHelper.this.isVmdConnected = true;
+//                    try {
+//                        String asString = CacheHelper.getFileCache().getAsString("machineId");
+//                        if (asString == null) {
+//                            CacheHelper.getFileCache().put("machineId", "0000000000");
+//                            asString = "0000000000";
+//                        }
+//                        if (asString.equalsIgnoreCase("0000000000")) {
+//                            vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功 Debug模式");
+//                        } else {
+//                            vmdConnectLisener.onConnectResult(VmdHelper.this.isVmdConnected, "/dev/ttyS1  9600 连接成功");
+//                        }
+//                    } catch (Exception unused) {
+//                    }
+//                    new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.3.1.1
+//                        RunnableC00811() {
+//                        }
+//
+//                        @Override // java.lang.Runnable
+//                        public void run() {
+//                            BqlManager.get().reset((short) 1);
+//                            Loger.writeLog("SHJ", "复位完成");
+//                        }
+//                    }).start();
+//                }
+//
+//                /* renamed from: com.xyshj.machine.app.VmdHelper$3$1$1 */
+//                /* loaded from: classes2.dex */
+//                class RunnableC00811 implements Runnable {
+//                    RunnableC00811() {
+//                    }
+//
+//                    @Override // java.lang.Runnable
+//                    public void run() {
+//                        BqlManager.get().reset((short) 1);
+//                        Loger.writeLog("SHJ", "复位完成");
+//                    }
+//                }
+//
+//                @Override // com.hanlu.toolsdk.SerialPortUtil.OpenCallback
+//                public void onFailure(Throwable th) {
+//                    Loger.writeLog("SHJ", "/dev/ttyS1  9600 连接失败");
+//                    Loger.writeException("SHJ", th);
+//                    VmdHelper.this.isVmdConnected = BqlManager.get().isDebug();
+//                    if (CacheHelper.getFileCache().getAsString("machineId") == null) {
+//                        CacheHelper.getFileCache().put("machineId", "0000000000");
+//                    }
+//                    VmdConnectLisener vmdConnectLisener2 = vmdConnectLisener;
+//                    boolean z = VmdHelper.this.isVmdConnected;
+//                    StringBuilder sb = new StringBuilder();
+//                    sb.append("/dev/ttyS1  9600 ");
+//                    sb.append(BqlManager.get().isDebug() ? "Debug模式" : "连接失败");
+//                    vmdConnectLisener2.onConnectResult(z, sb.toString());
+//                }
+//            }
         }, 1000L, 60000L);
     }
 
@@ -1313,31 +1315,31 @@ public class VmdHelper {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("ok", (Object) false);
         JSONArray jSONArray = new JSONArray();
-        jSONObject.put(SpeechEvent.KEY_EVENT_RECORD_DATA, (Object) jSONArray);
+//        jSONObject.put(SpeechEvent.KEY_EVENT_RECORD_DATA, (Object) jSONArray);
         BqlItem bqlItem = get().getBqlItem(str);
         Loger.writeLog("SHJ", " bqlItem name:" + bqlItem.getName() + " tops count:" + bqlItem.getTops().size());
         HashMap hashMap = new HashMap();
         hashMap.putAll(bqlItem.tops);
         hashMap.putAll(bqlOrder.getTops());
         boolean z = true;
-        for (String str2 : hashMap.keySet()) {
-            Loger.writeLog("SHJ", " topName " + str2 + " count:" + hashMap.get(str2));
-            if (((Integer) hashMap.get(str2)).intValue() != 0) {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("name", (Object) str2);
-                jSONObject2.put("weight", hashMap.get(str2));
-                jSONArray.add(jSONObject2);
-                List<Integer> fruit2deviceshelf = fruit2deviceshelf(str2, ((Integer) hashMap.get(str2)).intValue());
-                jSONObject2.put("deviceshelf", (Object) fruit2deviceshelf);
-                if (z) {
-                    z = fruit2deviceshelf.size() > 0;
-                }
-                Loger.writeLog("SHJ", " topName " + str2 + " isOK:" + z);
-                if (!z) {
-                    break;
-                }
-            }
-        }
+//        for (String str2 : hashMap.keySet()) {
+//            Loger.writeLog("SHJ", " topName " + str2 + " count:" + hashMap.get(str2));
+//            if (((Integer) hashMap.get(str2)).intValue() != 0) {
+//                JSONObject jSONObject2 = new JSONObject();
+//                jSONObject2.put("name", (Object) str2);
+//                jSONObject2.put("weight", hashMap.get(str2));
+//                jSONArray.add(jSONObject2);
+//                List<Integer> fruit2deviceshelf = fruit2deviceshelf(str2, ((Integer) hashMap.get(str2)).intValue());
+//                jSONObject2.put("deviceshelf", (Object) fruit2deviceshelf);
+//                if (z) {
+//                    z = fruit2deviceshelf.size() > 0;
+//                }
+//                Loger.writeLog("SHJ", " topName " + str2 + " isOK:" + z);
+//                if (!z) {
+//                    break;
+//                }
+//            }
+//        }
         jSONObject.put("ok", Boolean.valueOf(z));
         return jSONObject;
     }
@@ -1358,13 +1360,6 @@ public class VmdHelper {
         this.isOffering = true;
         ShjManager.getOrderManager().addTradSn();
         new Thread(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.4
-            final /* synthetic */ int val$bqlShelf;
-            final /* synthetic */ JSONObject val$peifang;
-
-            AnonymousClass4(int i2, JSONObject jSONObject2) {
-                i = i2;
-                jSONObject = jSONObject2;
-            }
 
             /* JADX WARN: Code restructure failed: missing block: B:74:0x022c, code lost:
             
@@ -1393,13 +1388,7 @@ public class VmdHelper {
     /* renamed from: com.xyshj.machine.app.VmdHelper$4 */
     /* loaded from: classes2.dex */
     public class AnonymousClass4 implements Runnable {
-        final /* synthetic */ int val$bqlShelf;
-        final /* synthetic */ JSONObject val$peifang;
 
-        AnonymousClass4(int i2, JSONObject jSONObject2) {
-            i = i2;
-            jSONObject = jSONObject2;
-        }
 
         @Override // java.lang.Runnable
         public void run() {
@@ -2071,7 +2060,7 @@ public class VmdHelper {
     void bql_connect() {
         try {
             if (this.serialPortSTK920 == null) {
-                this.serialPortSTK920 = new SerialPort("/dev/ttyS4", 9600, 0);
+//                this.serialPortSTK920 = new SerialPort("/dev/ttyS4", 9600, 0);
             }
         } catch (Exception unused) {
         }
@@ -2088,8 +2077,7 @@ public class VmdHelper {
             this.threadService = Executors.newFixedThreadPool(1);
         }
         this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.5
-            AnonymousClass5() {
-            }
+
 
             @Override // java.lang.Runnable
             public void run() {
@@ -2128,8 +2116,7 @@ public class VmdHelper {
             this.threadService = Executors.newFixedThreadPool(1);
         }
         this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.6
-            AnonymousClass6() {
-            }
+
 
             @Override // java.lang.Runnable
             public void run() {
@@ -2156,8 +2143,7 @@ public class VmdHelper {
     /* renamed from: com.xyshj.machine.app.VmdHelper$6 */
     /* loaded from: classes2.dex */
     public class AnonymousClass6 implements Runnable {
-        AnonymousClass6() {
-        }
+
 
         @Override // java.lang.Runnable
         public void run() {
@@ -2186,8 +2172,7 @@ public class VmdHelper {
             this.threadService = Executors.newFixedThreadPool(1);
         }
         this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.7
-            AnonymousClass7() {
-            }
+
 
             @Override // java.lang.Runnable
             public void run() {
@@ -2231,8 +2216,7 @@ public class VmdHelper {
             this.threadService = Executors.newFixedThreadPool(1);
         }
         this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.8
-            AnonymousClass8() {
-            }
+
 
             @Override // java.lang.Runnable
             public void run() {
@@ -2271,11 +2255,7 @@ public class VmdHelper {
             this.threadService = Executors.newFixedThreadPool(1);
         }
         this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.9
-            final /* synthetic */ int val$n;
 
-            AnonymousClass9(int i2) {
-                i = i2;
-            }
 
             @Override // java.lang.Runnable
             public void run() {
@@ -2289,15 +2269,12 @@ public class VmdHelper {
     /* renamed from: com.xyshj.machine.app.VmdHelper$9 */
     /* loaded from: classes2.dex */
     public class AnonymousClass9 implements Runnable {
-        final /* synthetic */ int val$n;
 
-        AnonymousClass9(int i2) {
-            i = i2;
-        }
+
 
         @Override // java.lang.Runnable
         public void run() {
-            VmdHelper.this.bql_set_yingdu(i);
+//            VmdHelper.this.bql_set_yingdu(i);
             VmdHelper.this.sleep(2000);
             VmdHelper.this.bql_checkStatus(false);
         }
@@ -2314,15 +2291,15 @@ public class VmdHelper {
             this.threadService = Executors.newFixedThreadPool(1);
         }
         this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.10
-            AnonymousClass10() {
-            }
+//            AnonymousClass10() {
+//            }
 
             @Override // java.lang.Runnable
             public void run() {
                 VmdHelper.this.canCheckingBqlPlcStatus = false;
-                if (BqlManager.get().isReady()) {
-                    Shj.setOfferGoodsDiviceState(0);
-                }
+//                if (BqlManager.get().isReady()) {
+//                    Shj.setOfferGoodsDiviceState(0);
+//                }
                 VmdHelper.this.canCheckingBqlPlcStatus = true;
             }
         });
@@ -2338,9 +2315,9 @@ public class VmdHelper {
         @Override // java.lang.Runnable
         public void run() {
             VmdHelper.this.canCheckingBqlPlcStatus = false;
-            if (BqlManager.get().isReady()) {
-                Shj.setOfferGoodsDiviceState(0);
-            }
+//            if (BqlManager.get().isReady()) {
+//                Shj.setOfferGoodsDiviceState(0);
+//            }
             VmdHelper.this.canCheckingBqlPlcStatus = true;
         }
     }
@@ -2403,13 +2380,13 @@ public class VmdHelper {
             this.threadService = Executors.newFixedThreadPool(1);
         }
         this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.11
-            final /* synthetic */ CheckBqlStatusListener val$l;
-            final /* synthetic */ int val$waittime;
-
-            AnonymousClass11(CheckBqlStatusListener checkBqlStatusListener2, int i2) {
-                checkBqlStatusListener = checkBqlStatusListener2;
-                i = i2;
-            }
+//            final /* synthetic */ CheckBqlStatusListener val$l;
+//            final /* synthetic */ int val$waittime;
+//
+//            AnonymousClass11(CheckBqlStatusListener checkBqlStatusListener2, int i2) {
+//                checkBqlStatusListener = checkBqlStatusListener2;
+//                i = i2;
+//            }
 
             @Override // java.lang.Runnable
             public void run() {
@@ -2426,11 +2403,12 @@ public class VmdHelper {
                         VmdHelper.this.sleep(1000);
                     }
                 }
-                if (BqlManager.get().isQiangliao()) {
-                    VmdHelper.this.bqlError = ShjAppHelper.getString(R.string.bql_stork_no);
-                    VmdHelper.this.updateQianliaoOnCheck(true);
-                    checkBqlStatusListener.onCheckBqlStatusResult(Shj.getShelfInfo(201).getGoodsCount().intValue() > 0, VmdHelper.this.bqlError);
-                } else {
+//                if (BqlManager.get().isQiangliao()) {
+//                    VmdHelper.this.bqlError = ShjAppHelper.getString(R.string.bql_stork_no);
+//                    VmdHelper.this.updateQianliaoOnCheck(true);
+//                    checkBqlStatusListener.onCheckBqlStatusResult(Shj.getShelfInfo(201).getGoodsCount().intValue() > 0, VmdHelper.this.bqlError);
+//                }
+                else {
                     VmdHelper.this.updateQianliaoOnCheck(false);
                     checkBqlStatusListener.onCheckBqlStatusResult(bql_checkStatus, VmdHelper.this.bqlError);
                 }
@@ -2442,37 +2420,37 @@ public class VmdHelper {
     /* renamed from: com.xyshj.machine.app.VmdHelper$11 */
     /* loaded from: classes2.dex */
     public class AnonymousClass11 implements Runnable {
-        final /* synthetic */ CheckBqlStatusListener val$l;
-        final /* synthetic */ int val$waittime;
-
-        AnonymousClass11(CheckBqlStatusListener checkBqlStatusListener2, int i2) {
-            checkBqlStatusListener = checkBqlStatusListener2;
-            i = i2;
-        }
+//        final /* synthetic */ CheckBqlStatusListener val$l;
+//        final /* synthetic */ int val$waittime;
+//
+//        AnonymousClass11(CheckBqlStatusListener checkBqlStatusListener2, int i2) {
+//            checkBqlStatusListener = checkBqlStatusListener2;
+//            i = i2;
+//        }
 
         @Override // java.lang.Runnable
         public void run() {
             boolean bql_checkStatus = VmdHelper.this.bql_checkStatus(false);
             if (VmdHelper.this._isBqlStoped || VmdHelper.this._isBqlGuoye || VmdHelper.this._isBqlQingxi) {
-                checkBqlStatusListener.onCheckBqlStatusResult(bql_checkStatus, VmdHelper.this.bqlError);
+//                checkBqlStatusListener.onCheckBqlStatusResult(bql_checkStatus, VmdHelper.this.bqlError);
                 return;
             }
-            if (!bql_checkStatus && i > 0) {
-                checkBqlStatusListener.onStartWait2StatusOk(VmdHelper.this.bqlError);
-                long currentTimeMillis = System.currentTimeMillis();
-                while (!bql_checkStatus && System.currentTimeMillis() - currentTimeMillis < i) {
-                    bql_checkStatus = VmdHelper.this.bql_checkStatus(false);
-                    VmdHelper.this.sleep(1000);
-                }
-            }
-            if (BqlManager.get().isQiangliao()) {
-                VmdHelper.this.bqlError = ShjAppHelper.getString(R.string.bql_stork_no);
-                VmdHelper.this.updateQianliaoOnCheck(true);
-                checkBqlStatusListener.onCheckBqlStatusResult(Shj.getShelfInfo(201).getGoodsCount().intValue() > 0, VmdHelper.this.bqlError);
-            } else {
-                VmdHelper.this.updateQianliaoOnCheck(false);
-                checkBqlStatusListener.onCheckBqlStatusResult(bql_checkStatus, VmdHelper.this.bqlError);
-            }
+//            if (!bql_checkStatus && i > 0) {
+//                checkBqlStatusListener.onStartWait2StatusOk(VmdHelper.this.bqlError);
+//                long currentTimeMillis = System.currentTimeMillis();
+//                while (!bql_checkStatus && System.currentTimeMillis() - currentTimeMillis < i) {
+//                    bql_checkStatus = VmdHelper.this.bql_checkStatus(false);
+//                    VmdHelper.this.sleep(1000);
+//                }
+//            }
+//            if (BqlManager.get().isQiangliao()) {
+//                VmdHelper.this.bqlError = ShjAppHelper.getString(R.string.bql_stork_no);
+//                VmdHelper.this.updateQianliaoOnCheck(true);
+//                checkBqlStatusListener.onCheckBqlStatusResult(Shj.getShelfInfo(201).getGoodsCount().intValue() > 0, VmdHelper.this.bqlError);
+//            } else {
+//                VmdHelper.this.updateQianliaoOnCheck(false);
+//                checkBqlStatusListener.onCheckBqlStatusResult(bql_checkStatus, VmdHelper.this.bqlError);
+//            }
         }
     }
 
@@ -2482,19 +2460,19 @@ public class VmdHelper {
             this.threadService = Executors.newFixedThreadPool(1);
         }
         this.threadService.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.12
-            AnonymousClass12() {
-            }
+//            AnonymousClass12() {
+//            }
 
             @Override // java.lang.Runnable
             public void run() {
                 VmdHelper.this.bql_checkStatus(false);
                 VmdHelper.this.tryStopBqlPowAfterDongan();
                 VmdHelper.this.sleep(1000);
-                if (BqlManager.get().isQiangliao()) {
-                    VmdHelper.this.updateQianliaoOnCheck(true);
-                } else {
-                    VmdHelper.this.updateQianliaoOnCheck(false);
-                }
+//                if (BqlManager.get().isQiangliao()) {
+//                    VmdHelper.this.updateQianliaoOnCheck(true);
+//                } else {
+//                    VmdHelper.this.updateQianliaoOnCheck(false);
+//                }
             }
         });
     }
@@ -2511,11 +2489,11 @@ public class VmdHelper {
             VmdHelper.this.bql_checkStatus(false);
             VmdHelper.this.tryStopBqlPowAfterDongan();
             VmdHelper.this.sleep(1000);
-            if (BqlManager.get().isQiangliao()) {
-                VmdHelper.this.updateQianliaoOnCheck(true);
-            } else {
-                VmdHelper.this.updateQianliaoOnCheck(false);
-            }
+//            if (BqlManager.get().isQiangliao()) {
+//                VmdHelper.this.updateQianliaoOnCheck(true);
+//            } else {
+//                VmdHelper.this.updateQianliaoOnCheck(false);
+//            }
         }
     }
 
@@ -2528,7 +2506,7 @@ public class VmdHelper {
             return;
         }
         if (this._isdonggan || this._isbianpingError || this._isgaoyaError || this._isqianyaError) {
-            BqlManager.get().setBqlStatus(false);
+//            BqlManager.get().setBqlStatus(false);
             this.isBqlPowOffAfterDongan = true;
         }
     }
@@ -2537,11 +2515,11 @@ public class VmdHelper {
         if (getBqlVersion() == 1) {
             return true;
         }
-        boolean isBqlPowon = BqlManager.get().isBqlPowon();
-        if (isBqlPowon) {
-            this.isBqlPowOffAfterDongan = false;
-        }
-        return isBqlPowon;
+//        boolean isBqlPowon = BqlManager.get().isBqlPowon();
+//        if (isBqlPowon) {
+//            this.isBqlPowOffAfterDongan = false;
+//        }
+        return true;
     }
 
     public boolean checkVmdConnected() {
@@ -2574,13 +2552,13 @@ public class VmdHelper {
         jSONObject.put("count", shelfInfo.getGoodsCount());
         jSONObject.put("code", shelfInfo.getGoodsCode());
         jSONObject.put("name", shelfInfo.getGoodsName());
-        if (i == 101) {
-            jSONObject.put(IjkMediaMeta.IJKM_KEY_TYPE, 1);
-        } else if (i < 10) {
-            jSONObject.put(IjkMediaMeta.IJKM_KEY_TYPE, 2);
-        } else if (i > 200) {
-            jSONObject.put(IjkMediaMeta.IJKM_KEY_TYPE, 3);
-        }
+//        if (i == 101) {
+//            jSONObject.put(IjkMediaMeta.IJKM_KEY_TYPE, 1);
+//        } else if (i < 10) {
+//            jSONObject.put(IjkMediaMeta.IJKM_KEY_TYPE, 2);
+//        } else if (i > 200) {
+//            jSONObject.put(IjkMediaMeta.IJKM_KEY_TYPE, 3);
+//        }
         return jSONObject;
     }
 
@@ -2590,11 +2568,11 @@ public class VmdHelper {
                 this.threadService2 = Executors.newFixedThreadPool(1);
             }
             this.threadService2.execute(new Runnable() { // from class: com.xyshj.machine.app.VmdHelper.13
-                final /* synthetic */ boolean val$queryQianliao;
-
-                AnonymousClass13(boolean z2) {
-                    z = z2;
-                }
+//                final /* synthetic */ boolean val$queryQianliao;
+//
+//                AnonymousClass13(boolean z2) {
+//                    z = z2;
+//                }
 
                 /* JADX WARN: Multi-variable type inference failed */
                 /* JADX WARN: Type inference failed for: r0v0, types: [org.json.JSONObject] */
@@ -2603,84 +2581,84 @@ public class VmdHelper {
                 /* JADX WARN: Type inference failed for: r2v5 */
                 @Override // java.lang.Runnable
                 public void run() {
-                    try {
-                        ?? jSONObject = new org.json.JSONObject();
-                        jSONObject.put("jqbh", Shj.getMachineId());
-                        jSONObject.put("temperature", VmdHelper.this.tempretrue);
-                        int i = 0;
-                        ?? r2 = VmdHelper.this._isBqlStoped;
-                        if (VmdHelper.this._isBqlGuoye) {
-                            r2 = 2;
-                        }
-                        int i2 = r2;
-                        if (VmdHelper.this._isBqlQingxi) {
-                            i2 = 3;
-                        }
-                        int i3 = 4;
-                        int i4 = i2;
-                        if (z) {
-                            i4 = i2;
-                            if (BqlManager.get().isQiangliao()) {
-                                i = 1;
-                                i4 = 4;
-                            }
-                        }
-                        int i5 = i4;
-                        if (VmdHelper.this._isdonggan) {
-                            i = 2;
-                            i5 = 4;
-                        }
-                        int i6 = i5;
-                        if (VmdHelper.this._isbianpingError) {
-                            i = 3;
-                            i6 = 4;
-                        }
-                        int i7 = i6;
-                        if (VmdHelper.this._isqianyaError) {
-                            i = 4;
-                            i7 = 4;
-                        }
-                        int i8 = i7;
-                        if (VmdHelper.this._isGaoWenError) {
-                            i = 5;
-                            i8 = 4;
-                        }
-                        if (VmdHelper.this._isgaoyaError) {
-                            i = 6;
-                        } else {
-                            i3 = i8;
-                        }
-                        jSONObject.put("status", i3);
-                        jSONObject.put("errorCode", i);
-                        org.json.JSONArray jSONArray = new org.json.JSONArray();
-                        jSONObject.put(ShjDbHelper.TABLE_NAME, jSONArray);
-                        for (Integer num : Shj.getShelves()) {
-                            if (num.intValue() < 10 || num.intValue() > 200) {
-                                ShelfInfo shelfInfo = Shj.getShelfInfo(num);
-                                org.json.JSONObject jSONObject2 = new org.json.JSONObject();
-                                jSONObject2.put("hdbh", num);
-                                jSONObject2.put("count", shelfInfo.getGoodsCount());
-                                jSONObject2.put("code", shelfInfo.getGoodsCode());
-                                jSONObject2.put("name", shelfInfo.getGoodsName());
-                                if (num.intValue() == 101) {
-                                    jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 1);
-                                } else if (num.intValue() < 10) {
-                                    jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 2);
-                                } else if (num.intValue() > 200) {
-                                    jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 3);
-                                }
-                                jSONArray.put(jSONObject2);
-                            }
-                        }
-                        String jSONObject3 = jSONObject.toString();
-                        if (jSONObject3.equals(VmdHelper.this.lastReportV)) {
-                            return;
-                        }
-                        VmdHelper.this.lastReportV = jSONObject3;
-                        jSONObject.put("time", DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
-                        RequestHelper.request(new RequestItem(NetAddress.reportMachineStatusUrl(), (org.json.JSONObject) jSONObject, "POST"));
-                    } catch (Exception unused) {
-                    }
+//                    try {
+//                        ?? jSONObject = new org.json.JSONObject();
+//                        jSONObject.put("jqbh", Shj.getMachineId());
+//                        jSONObject.put("temperature", VmdHelper.this.tempretrue);
+//                        int i = 0;
+//                        ?? r2 = VmdHelper.this._isBqlStoped;
+//                        if (VmdHelper.this._isBqlGuoye) {
+//                            r2 = 2;
+//                        }
+//                        int i2 = r2;
+//                        if (VmdHelper.this._isBqlQingxi) {
+//                            i2 = 3;
+//                        }
+//                        int i3 = 4;
+//                        int i4 = i2;
+//                        if (z) {
+//                            i4 = i2;
+//                            if (BqlManager.get().isQiangliao()) {
+//                                i = 1;
+//                                i4 = 4;
+//                            }
+//                        }
+//                        int i5 = i4;
+//                        if (VmdHelper.this._isdonggan) {
+//                            i = 2;
+//                            i5 = 4;
+//                        }
+//                        int i6 = i5;
+//                        if (VmdHelper.this._isbianpingError) {
+//                            i = 3;
+//                            i6 = 4;
+//                        }
+//                        int i7 = i6;
+//                        if (VmdHelper.this._isqianyaError) {
+//                            i = 4;
+//                            i7 = 4;
+//                        }
+//                        int i8 = i7;
+//                        if (VmdHelper.this._isGaoWenError) {
+//                            i = 5;
+//                            i8 = 4;
+//                        }
+//                        if (VmdHelper.this._isgaoyaError) {
+//                            i = 6;
+//                        } else {
+//                            i3 = i8;
+//                        }
+//                        jSONObject.put("status", i3);
+//                        jSONObject.put("errorCode", i);
+//                        org.json.JSONArray jSONArray = new org.json.JSONArray();
+//                        jSONObject.put(ShjDbHelper.TABLE_NAME, jSONArray);
+//                        for (Integer num : Shj.getShelves()) {
+//                            if (num.intValue() < 10 || num.intValue() > 200) {
+//                                ShelfInfo shelfInfo = Shj.getShelfInfo(num);
+//                                org.json.JSONObject jSONObject2 = new org.json.JSONObject();
+//                                jSONObject2.put("hdbh", num);
+//                                jSONObject2.put("count", shelfInfo.getGoodsCount());
+//                                jSONObject2.put("code", shelfInfo.getGoodsCode());
+//                                jSONObject2.put("name", shelfInfo.getGoodsName());
+//                                if (num.intValue() == 101) {
+//                                    jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 1);
+//                                } else if (num.intValue() < 10) {
+//                                    jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 2);
+//                                } else if (num.intValue() > 200) {
+//                                    jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 3);
+//                                }
+//                                jSONArray.put(jSONObject2);
+//                            }
+//                        }
+//                        String jSONObject3 = jSONObject.toString();
+//                        if (jSONObject3.equals(VmdHelper.this.lastReportV)) {
+//                            return;
+//                        }
+//                        VmdHelper.this.lastReportV = jSONObject3;
+//                        jSONObject.put("time", DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
+//                        RequestHelper.request(new RequestItem(NetAddress.reportMachineStatusUrl(), (org.json.JSONObject) jSONObject, "POST"));
+//                    } catch (Exception unused) {
+//                    }
                 }
             });
         }
@@ -2689,11 +2667,11 @@ public class VmdHelper {
     /* renamed from: com.xyshj.machine.app.VmdHelper$13 */
     /* loaded from: classes2.dex */
     public class AnonymousClass13 implements Runnable {
-        final /* synthetic */ boolean val$queryQianliao;
+//        final /* synthetic */ boolean val$queryQianliao;
 
-        AnonymousClass13(boolean z2) {
-            z = z2;
-        }
+//        AnonymousClass13(boolean z2) {
+//            z = z2;
+//        }
 
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Type inference failed for: r0v0, types: [org.json.JSONObject] */
@@ -2702,84 +2680,84 @@ public class VmdHelper {
         /* JADX WARN: Type inference failed for: r2v5 */
         @Override // java.lang.Runnable
         public void run() {
-            try {
-                ?? jSONObject = new org.json.JSONObject();
-                jSONObject.put("jqbh", Shj.getMachineId());
-                jSONObject.put("temperature", VmdHelper.this.tempretrue);
-                int i = 0;
-                ?? r2 = VmdHelper.this._isBqlStoped;
-                if (VmdHelper.this._isBqlGuoye) {
-                    r2 = 2;
-                }
-                int i2 = r2;
-                if (VmdHelper.this._isBqlQingxi) {
-                    i2 = 3;
-                }
-                int i3 = 4;
-                int i4 = i2;
-                if (z) {
-                    i4 = i2;
-                    if (BqlManager.get().isQiangliao()) {
-                        i = 1;
-                        i4 = 4;
-                    }
-                }
-                int i5 = i4;
-                if (VmdHelper.this._isdonggan) {
-                    i = 2;
-                    i5 = 4;
-                }
-                int i6 = i5;
-                if (VmdHelper.this._isbianpingError) {
-                    i = 3;
-                    i6 = 4;
-                }
-                int i7 = i6;
-                if (VmdHelper.this._isqianyaError) {
-                    i = 4;
-                    i7 = 4;
-                }
-                int i8 = i7;
-                if (VmdHelper.this._isGaoWenError) {
-                    i = 5;
-                    i8 = 4;
-                }
-                if (VmdHelper.this._isgaoyaError) {
-                    i = 6;
-                } else {
-                    i3 = i8;
-                }
-                jSONObject.put("status", i3);
-                jSONObject.put("errorCode", i);
-                org.json.JSONArray jSONArray = new org.json.JSONArray();
-                jSONObject.put(ShjDbHelper.TABLE_NAME, jSONArray);
-                for (Integer num : Shj.getShelves()) {
-                    if (num.intValue() < 10 || num.intValue() > 200) {
-                        ShelfInfo shelfInfo = Shj.getShelfInfo(num);
-                        org.json.JSONObject jSONObject2 = new org.json.JSONObject();
-                        jSONObject2.put("hdbh", num);
-                        jSONObject2.put("count", shelfInfo.getGoodsCount());
-                        jSONObject2.put("code", shelfInfo.getGoodsCode());
-                        jSONObject2.put("name", shelfInfo.getGoodsName());
-                        if (num.intValue() == 101) {
-                            jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 1);
-                        } else if (num.intValue() < 10) {
-                            jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 2);
-                        } else if (num.intValue() > 200) {
-                            jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 3);
-                        }
-                        jSONArray.put(jSONObject2);
-                    }
-                }
-                String jSONObject3 = jSONObject.toString();
-                if (jSONObject3.equals(VmdHelper.this.lastReportV)) {
-                    return;
-                }
-                VmdHelper.this.lastReportV = jSONObject3;
-                jSONObject.put("time", DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
-                RequestHelper.request(new RequestItem(NetAddress.reportMachineStatusUrl(), (org.json.JSONObject) jSONObject, "POST"));
-            } catch (Exception unused) {
-            }
+//            try {
+//                ?? jSONObject = new org.json.JSONObject();
+//                jSONObject.put("jqbh", Shj.getMachineId());
+//                jSONObject.put("temperature", VmdHelper.this.tempretrue);
+//                int i = 0;
+//                ?? r2 = VmdHelper.this._isBqlStoped;
+//                if (VmdHelper.this._isBqlGuoye) {
+//                    r2 = 2;
+//                }
+//                int i2 = r2;
+//                if (VmdHelper.this._isBqlQingxi) {
+//                    i2 = 3;
+//                }
+//                int i3 = 4;
+//                int i4 = i2;
+//                if (z) {
+//                    i4 = i2;
+//                    if (BqlManager.get().isQiangliao()) {
+//                        i = 1;
+//                        i4 = 4;
+//                    }
+//                }
+//                int i5 = i4;
+//                if (VmdHelper.this._isdonggan) {
+//                    i = 2;
+//                    i5 = 4;
+//                }
+//                int i6 = i5;
+//                if (VmdHelper.this._isbianpingError) {
+//                    i = 3;
+//                    i6 = 4;
+//                }
+//                int i7 = i6;
+//                if (VmdHelper.this._isqianyaError) {
+//                    i = 4;
+//                    i7 = 4;
+//                }
+//                int i8 = i7;
+//                if (VmdHelper.this._isGaoWenError) {
+//                    i = 5;
+//                    i8 = 4;
+//                }
+//                if (VmdHelper.this._isgaoyaError) {
+//                    i = 6;
+//                } else {
+//                    i3 = i8;
+//                }
+//                jSONObject.put("status", i3);
+//                jSONObject.put("errorCode", i);
+//                org.json.JSONArray jSONArray = new org.json.JSONArray();
+//                jSONObject.put(ShjDbHelper.TABLE_NAME, jSONArray);
+//                for (Integer num : Shj.getShelves()) {
+//                    if (num.intValue() < 10 || num.intValue() > 200) {
+//                        ShelfInfo shelfInfo = Shj.getShelfInfo(num);
+//                        org.json.JSONObject jSONObject2 = new org.json.JSONObject();
+//                        jSONObject2.put("hdbh", num);
+//                        jSONObject2.put("count", shelfInfo.getGoodsCount());
+//                        jSONObject2.put("code", shelfInfo.getGoodsCode());
+//                        jSONObject2.put("name", shelfInfo.getGoodsName());
+//                        if (num.intValue() == 101) {
+//                            jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 1);
+//                        } else if (num.intValue() < 10) {
+//                            jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 2);
+//                        } else if (num.intValue() > 200) {
+//                            jSONObject2.put(IjkMediaMeta.IJKM_KEY_TYPE, 3);
+//                        }
+//                        jSONArray.put(jSONObject2);
+//                    }
+//                }
+//                String jSONObject3 = jSONObject.toString();
+//                if (jSONObject3.equals(VmdHelper.this.lastReportV)) {
+//                    return;
+//                }
+//                VmdHelper.this.lastReportV = jSONObject3;
+//                jSONObject.put("time", DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
+//                RequestHelper.request(new RequestItem(NetAddress.reportMachineStatusUrl(), (org.json.JSONObject) jSONObject, "POST"));
+//            } catch (Exception unused) {
+//            }
         }
     }
 
@@ -2820,7 +2798,7 @@ public class VmdHelper {
                         jSONObject2.put("name", Shj.getShelfInfo(valueOf).getGoodsName());
                     }
                 }
-                jSONObject.put(SpeechEvent.KEY_EVENT_RECORD_DATA, jSONArray);
+//                jSONObject.put(SpeechEvent.KEY_EVENT_RECORD_DATA, jSONArray);
             }
             RequestItem requestItem = new RequestItem(NetAddress.reportOfferResultUrl(), jSONObject, "POST");
             requestItem.setRepeatDelay(20000);
@@ -2847,8 +2825,8 @@ public class VmdHelper {
                 public void onRequestFinished(RequestItem requestItem2, boolean z) {
                 }
 
-                AnonymousClass14() {
-                }
+//                AnonymousClass14() {
+//                }
 
                 @Override // com.oysb.utils.http.RequestItem.OnRequestResultListener
                 public void onFailure(RequestItem requestItem2, int i, String str, Throwable th) {
@@ -2866,21 +2844,21 @@ public class VmdHelper {
                         requestItem2.getJSONParams().put("temperature", (int) VmdHelper.this.tempretrue);
                         VmdHelper.this.isServerSynOk = true;
                         PopView_Info.closeInfo("synServerrcheck");
-                        org.json.JSONObject jSONObject2 = new org.json.JSONObject(str).getJSONObject(SpeechEvent.KEY_EVENT_RECORD_DATA).getJSONObject("task");
-                        if (jSONObject2.has(SpeechConstant.ISV_CMD)) {
-                            if (jSONObject2.getString(SpeechConstant.ISV_CMD).equalsIgnoreCase("reboot")) {
-                                AndroidSystem.setNeedRestartApp(true, "sever cmd reboot");
-                            } else if (jSONObject2.getString(SpeechConstant.ISV_CMD).equalsIgnoreCase("countCoins")) {
-                                MdbReader_BDT.get().queryCoins(new MdbReader_BDT.QueryCoinsResultListener() { // from class: com.xyshj.machine.app.VmdHelper.14.1
-                                    @Override // com.shj.device.cardreader.MdbReader_BDT.QueryCoinsResultListener
-                                    public void onResult(HashMap<Double, Integer> hashMap) {
-                                    }
-
-                                    AnonymousClass1() {
-                                    }
-                                });
-                            }
-                        }
+//                        org.json.JSONObject jSONObject2 = new org.json.JSONObject(str).getJSONObject(SpeechEvent.KEY_EVENT_RECORD_DATA).getJSONObject("task");
+//                        if (jSONObject2.has(SpeechConstant.ISV_CMD)) {
+//                            if (jSONObject2.getString(SpeechConstant.ISV_CMD).equalsIgnoreCase("reboot")) {
+//                                AndroidSystem.setNeedRestartApp(true, "sever cmd reboot");
+//                            } else if (jSONObject2.getString(SpeechConstant.ISV_CMD).equalsIgnoreCase("countCoins")) {
+//                                MdbReader_BDT.get().queryCoins(new MdbReader_BDT.QueryCoinsResultListener() { // from class: com.xyshj.machine.app.VmdHelper.14.1
+//                                    @Override // com.shj.device.cardreader.MdbReader_BDT.QueryCoinsResultListener
+//                                    public void onResult(HashMap<Double, Integer> hashMap) {
+//                                    }
+//
+//                                    AnonymousClass1() {
+//                                    }
+//                                });
+//                            }
+//                        }
                         return false;
                     } catch (Exception unused) {
                         return false;
@@ -2930,21 +2908,21 @@ public class VmdHelper {
                 requestItem2.getJSONParams().put("temperature", (int) VmdHelper.this.tempretrue);
                 VmdHelper.this.isServerSynOk = true;
                 PopView_Info.closeInfo("synServerrcheck");
-                org.json.JSONObject jSONObject2 = new org.json.JSONObject(str).getJSONObject(SpeechEvent.KEY_EVENT_RECORD_DATA).getJSONObject("task");
-                if (jSONObject2.has(SpeechConstant.ISV_CMD)) {
-                    if (jSONObject2.getString(SpeechConstant.ISV_CMD).equalsIgnoreCase("reboot")) {
-                        AndroidSystem.setNeedRestartApp(true, "sever cmd reboot");
-                    } else if (jSONObject2.getString(SpeechConstant.ISV_CMD).equalsIgnoreCase("countCoins")) {
-                        MdbReader_BDT.get().queryCoins(new MdbReader_BDT.QueryCoinsResultListener() { // from class: com.xyshj.machine.app.VmdHelper.14.1
-                            @Override // com.shj.device.cardreader.MdbReader_BDT.QueryCoinsResultListener
-                            public void onResult(HashMap<Double, Integer> hashMap) {
-                            }
-
-                            AnonymousClass1() {
-                            }
-                        });
-                    }
-                }
+//                org.json.JSONObject jSONObject2 = new org.json.JSONObject(str).getJSONObject(SpeechEvent.KEY_EVENT_RECORD_DATA).getJSONObject("task");
+//                if (jSONObject2.has(SpeechConstant.ISV_CMD)) {
+//                    if (jSONObject2.getString(SpeechConstant.ISV_CMD).equalsIgnoreCase("reboot")) {
+//                        AndroidSystem.setNeedRestartApp(true, "sever cmd reboot");
+//                    } else if (jSONObject2.getString(SpeechConstant.ISV_CMD).equalsIgnoreCase("countCoins")) {
+//                        MdbReader_BDT.get().queryCoins(new MdbReader_BDT.QueryCoinsResultListener() { // from class: com.xyshj.machine.app.VmdHelper.14.1
+//                            @Override // com.shj.device.cardreader.MdbReader_BDT.QueryCoinsResultListener
+//                            public void onResult(HashMap<Double, Integer> hashMap) {
+//                            }
+//
+////                            AnonymousClass1() {
+////                            }
+//                        });
+//                    }
+//                }
                 return false;
             } catch (Exception unused) {
                 return false;
@@ -3006,7 +2984,7 @@ public class VmdHelper {
                 jSONObject.put("errorMessage", str);
                 RequestItem requestItem = new RequestItem(NetAddress.getReportErrorUrl(), jSONObject, "POST");
                 org.json.JSONArray jSONArray = new org.json.JSONArray();
-                jSONObject.put(SpeechEvent.KEY_EVENT_RECORD_DATA, jSONArray);
+//                jSONObject.put(SpeechEvent.KEY_EVENT_RECORD_DATA, jSONArray);
                 Iterator<Integer> it = Shj.getShelves().iterator();
                 while (it.hasNext()) {
                     int intValue = it.next().intValue();
@@ -3034,8 +3012,8 @@ public class VmdHelper {
                         return true;
                     }
 
-                    AnonymousClass15() {
-                    }
+//                    AnonymousClass15() {
+//                    }
                 });
                 RequestHelper.request(requestItem);
             } catch (Exception unused) {
@@ -3090,8 +3068,8 @@ public class VmdHelper {
                     return true;
                 }
 
-                AnonymousClass16() {
-                }
+//                AnonymousClass16() {
+//                }
             });
             RequestHelper.request(requestItem);
         } catch (Exception unused) {
